@@ -8,6 +8,8 @@ output:
     variant: markdown_github
 ---
 
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -29,9 +31,11 @@ opts_knit$set(width=75)
 
 # Reproducible Cartography
 
+**Timothée Giraud & Nicolas Lambert**
+
 *Abstract*: The framework of this paper is the production of statistical maps fol-lowing the reproducible research paradigm. To produce statistical maps, the current or at least the most widespread usage is to combine several software products in a complex toolchain that use a variety of data and file formats. This software and formats diversity make it difficult to reproduce analysis and maps from A to Z. The aim of this paper is to propose a unified workflow that fully integrates map production in a reproducible process. We propose hereby a solution based on the R software through the development of the `cartography` package, an extension that fills the need of specific thematic mapping solution within the software.  
 
-Keywords: Reproducibility, Open-source, R, Statistical cartography, Map workflow
+**Keywords:** Reproducibility, Open-source, R, Statistical cartography, Map workflow
 
 
 ## 1. Introduction 
