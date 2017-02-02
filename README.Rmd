@@ -110,24 +110,26 @@ cartography counts 35 functions that process and display spatial object or map l
 
 ```{r, eval=FALSE }
 library(cartography)
+
 # Load data
 data(nuts2006)
 
 # get the figure ratio
-sizes <- getFigDim(spdf = nuts0.spdf, width = 400, mar = c(0,0,1.2,0))
-sizes[1] <- sizes[1] * 3
+sizes <- getFigDim(spdf = nuts0.spdf, width = 600, mar = c(0,0,1.2,0))
+sizes[1] <- sizes[1] * 2
+sizes[2] <- sizes[2] * 2
 
 # save the maps in png format
-png(filename = "img/3maps.png", width = sizes[1], height = sizes[2], res = 150)
+png(filename = "img/4maps.png", width = sizes[1], height = sizes[2], res = 150)
 
 # set margins
-opar <- par(mar = c(0,0,1.2,0), mfrow = c(1,3))
+opar <- par(mar = c(0,0,1.2,0), mfrow = c(2,2))
 
 # Plot a layer with the extent of the EU28 countries with only a background color
 plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
 
 # Plot non european space
-plot(world.spdf, col  = "#E3DEBF", border=NA, add=TRUE)
+plot(world.spdf, col = "#E3DEBF", border = NA, add = TRUE)
 
 # plot countries
 plot(nuts0.spdf, col = "#D1914D",border = "white", lwd=0.5, add=TRUE)
@@ -138,13 +140,13 @@ nuts0.df$pop <- nuts0.df$pop2008 / 1000
 # Plot the population
 propSymbolsLayer(spdf = nuts0.spdf, 
                  df = nuts0.df,  
-                 inches = 0.15, lwd = 0.5, var = "pop",
+                 inches = 0.125, lwd = 0.5, var = "pop",
                  legend.pos = "right", legend.values.rnd = 0, 
                  legend.title.txt = "Population, 2008\n(thousands of inh.)", 
                  legend.frame = F)
 # Layout plot
-layoutLayer(title = "\npropSymbolsLayer()",  author = "Package cartography v1.4.0", 
-            sources = "Source: Eurostat, 2011", frame = FALSE,  
+layoutLayer(title = "propSymbolsLayer()",  author = "", 
+            sources = "", frame = FALSE,  
             scale = NULL, theme = "wine.pal",
             north = TRUE) # add a south arrow
 
@@ -165,10 +167,44 @@ choroLayer(spdf = nuts0.spdf, df = nuts0.df, var = "gdpinh",
            legend.pos = "right", legend.title.txt = "GDP per inh. ,2008\n(euros)", 
            add=T)
 
-layoutLayer(title = "\nchoroLayer()", author = "", 
+layoutLayer(title = "choroLayer()", author = "", 
             sources = "", frame = FALSE, 
             scale = NULL, theme = "green.pal",
             north = FALSE) 
+
+
+
+# Plot a layer with the extent of the EU28 countries with only a background color
+plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
+
+# Plot non european space
+plot(world.spdf, col  = "#E3DEBF", border=NA, add=TRUE)
+
+# Plot the gdp per inhabitant
+choroLayer(spdf = nuts0.spdf, df = nuts0.df, var = "gdpinh", 
+           col = carto.pal(pal1 = "sand.pal", n1 = 4), 
+           method = "quantile",nclass = 4,  border = "white", lwd = 0.5,  
+           legend.pos = "right", legend.title.txt = "GDP per inh. ,2008\n(euros)", 
+           add=T)
+
+# Plot the population
+propSymbolsLayer(spdf = nuts0.spdf, 
+                 df = nuts0.df,  
+                 inches = 0.125, lwd = 1.25, var = "pop", 
+                 col = NA, border = "#940000", 
+                 legend.pos = "topright", legend.values.rnd = 0, 
+                 legend.title.txt = "Population, 2008\n(thousands of inh.)", 
+                 legend.frame = F)
+
+# layout
+layoutLayer(title = "propSymbolsLayer() + choroLayer()", 
+            author = "Package cartography v1.4.1", 
+            sources = "Source: Eurostat, 2011",
+            frame = FALSE, 
+            scale = NULL, theme = "sand.pal",
+            north = FALSE) 
+
+
 
 
 # Plot a layer with the extent of the EU28 countries with only a background color
@@ -201,7 +237,7 @@ propSymbolsChoroLayer(spdf = nuts0.spdf,
 
 
 # layout
-layoutLayer(title = "\npropSymbolsChoroLayer()", author = "", 
+layoutLayer(title = "propSymbolsChoroLayer()", author = "", 
             sources = "", frame = FALSE,  theme = "blue.pal",
             scale = 500, 
             north = FALSE) 
@@ -209,8 +245,8 @@ layoutLayer(title = "\npropSymbolsChoroLayer()", author = "",
 dev.off()
 ```
 
-![Three common maps](img/3maps.png)   
-**Fig. 3.  Three common maps** 
+![Three common maps](img/4maps.png)   
+**Fig. 3.  Four common maps** 
 
 Figure 3 shows three maps produced with cartography. The first one dis-plays the amount of population by country in Europe by using the proportional symbols function (propSymbolsLayer). The second one display the gross domestic product per inhabitants in euros on a choropleth map (choroLayer). The third map combines two indicators, the symbols sizes are proportional to the total population and the color scale is based on the distribution of gross domestic product per inhabitant (propSymbolsChoroLayer). 
 

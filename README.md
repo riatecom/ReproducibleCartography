@@ -3,22 +3,28 @@ Reproducible Cartography - ICC 2017
 
 **Timothée Giraud & Nicolas Lambert**
 
-Code and figures 
+*Abstract*: The framework of this paper is the production of statistical maps following the reproducible research paradigm. To produce statistical maps, the current or at least the most widespread usage is to combine several software products in a complex toolchain that use a variety of data and file formats. This software and formats diversity make it difficult to reproduce analysis and maps from A to Z. The aim of this paper is to propose a unified workflow that fully integrates map production in a reproducible process. We propose hereby a solution based on the R software through the development of the `cartography` package, an extension that fills the need of specific thematic mapping solution within the software.
+
+**Keywords:** Reproducibility, Open-source, R, Statistical cartography, Map workflow
+
+Code and figures
 
 ``` r
 library(cartography)
+
 # Load data
 data(nuts2006)
 
 # get the figure ratio
-sizes <- getFigDim(spdf = nuts0.spdf, width = 400, mar = c(0, 0, 1.2, 0))
-sizes[1] <- sizes[1] * 3
+sizes <- getFigDim(spdf = nuts0.spdf, width = 600, mar = c(0, 0, 1.2, 0))
+sizes[1] <- sizes[1] * 2
+sizes[2] <- sizes[2] * 2
 
 # save the maps in png format
-png(filename = "img/3maps.png", width = sizes[1], height = sizes[2], res = 150)
+png(filename = "img/4maps.png", width = sizes[1], height = sizes[2], res = 150)
 
 # set margins
-opar <- par(mar = c(0, 0, 1.2, 0), mfrow = c(1, 3))
+opar <- par(mar = c(0, 0, 1.2, 0), mfrow = c(2, 2))
 
 # Plot a layer with the extent of the EU28 countries with only a background
 # color
@@ -34,13 +40,12 @@ plot(nuts0.spdf, col = "#D1914D", border = "white", lwd = 0.5, add = TRUE)
 nuts0.df$pop <- nuts0.df$pop2008/1000
 
 # Plot the population
-propSymbolsLayer(spdf = nuts0.spdf, df = nuts0.df, inches = 0.15, lwd = 0.5, 
+propSymbolsLayer(spdf = nuts0.spdf, df = nuts0.df, inches = 0.125, lwd = 0.5, 
     var = "pop", legend.pos = "right", legend.values.rnd = 0, legend.title.txt = "Population, 2008\n(thousands of inh.)", 
     legend.frame = F)
 # Layout plot
-layoutLayer(title = "\npropSymbolsLayer()", author = "Package cartography v1.4.0", 
-    sources = "Source: Eurostat, 2011", frame = FALSE, scale = NULL, theme = "wine.pal", 
-    north = TRUE)  # add a south arrow
+layoutLayer(title = "propSymbolsLayer()", author = "", sources = "", frame = FALSE, 
+    scale = NULL, theme = "wine.pal", north = TRUE)  # add a south arrow
 
 
 # compute the GDP per inhabitants
@@ -58,8 +63,34 @@ choroLayer(spdf = nuts0.spdf, df = nuts0.df, var = "gdpinh", col = carto.pal(pal
     n1 = 4), method = "quantile", nclass = 4, border = "white", lwd = 0.5, legend.pos = "right", 
     legend.title.txt = "GDP per inh. ,2008\n(euros)", add = T)
 
-layoutLayer(title = "\nchoroLayer()", author = "", sources = "", frame = FALSE, 
+layoutLayer(title = "choroLayer()", author = "", sources = "", frame = FALSE, 
     scale = NULL, theme = "green.pal", north = FALSE)
+
+
+
+# Plot a layer with the extent of the EU28 countries with only a background
+# color
+plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
+
+# Plot non european space
+plot(world.spdf, col = "#E3DEBF", border = NA, add = TRUE)
+
+# Plot the gdp per inhabitant
+choroLayer(spdf = nuts0.spdf, df = nuts0.df, var = "gdpinh", col = carto.pal(pal1 = "sand.pal", 
+    n1 = 4), method = "quantile", nclass = 4, border = "white", lwd = 0.5, legend.pos = "right", 
+    legend.title.txt = "GDP per inh. ,2008\n(euros)", add = T)
+
+# Plot the population
+propSymbolsLayer(spdf = nuts0.spdf, df = nuts0.df, inches = 0.125, lwd = 1.25, 
+    var = "pop", col = NA, border = "#940000", legend.pos = "topright", legend.values.rnd = 0, 
+    legend.title.txt = "Population, 2008\n(thousands of inh.)", legend.frame = F)
+
+# layout
+layoutLayer(title = "propSymbolsLayer() + choroLayer()", author = "Package cartography v1.4.1", 
+    sources = "Source: Eurostat, 2011", frame = FALSE, scale = NULL, theme = "sand.pal", 
+    north = FALSE)
+
+
 
 
 # Plot a layer with the extent of the EU28 countries with only a background
@@ -82,14 +113,14 @@ propSymbolsChoroLayer(spdf = nuts0.spdf, df = nuts0.df, var = "pop", inches = 0.
 
 
 # layout
-layoutLayer(title = "\npropSymbolsChoroLayer()", author = "", sources = "", 
-    frame = FALSE, theme = "blue.pal", scale = 500, north = FALSE)
+layoutLayer(title = "propSymbolsChoroLayer()", author = "", sources = "", frame = FALSE, 
+    theme = "blue.pal", scale = 500, north = FALSE)
 
 dev.off()
 ```
 
-![Three common maps](img/3maps.png)
-**Fig. 3. Three common maps**
+![Four common maps](img/4maps.png)
+**Fig. 3. Four common maps**
 
 
 
@@ -190,8 +221,8 @@ layoutLayer(title = "Wealth Disparities in Europe, 2008", author = "Package cart
 dev.off()
 ```
 
-![Discontinuities map](img//Discontinuities.png) 
-**Fig. 5. Discontinuities map**
+![Discontinuities map](img//Discontinuities.png) **Fig. 5. Discontinuities map**
+
 
 ``` r
 library(cartography)
