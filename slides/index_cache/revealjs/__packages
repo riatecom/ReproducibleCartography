@@ -2,3 +2,5 @@ base
 knitr
 sp
 cartography
+SpatialPosition
+raster

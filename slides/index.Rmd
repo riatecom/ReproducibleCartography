@@ -6,8 +6,9 @@ output:
   revealjs::revealjs_presentation:
     theme: moon
     highlight: tango
-    center: true
-    self_contained: true
+    center: false
+    self_contained: false
+    reveal_plugins: ["notes"]
 ---
 
 ```{r knitr_init, echo=FALSE, cache=FALSE}
@@ -25,87 +26,134 @@ opts_knit$set(width=90)
 options(width = 90)
 
 
-
-
-
 ```
 
-# La science est infaillible ; mais les savants se trompent toujours
+
+# touche s pour faire apparaitre les notes dans une seconde fenêtre
+
+
+# "Science is infallible; but scholars are always wrong."
+
+<div class="notes">
+"La science est infaillible ; mais les savants se trompent toujours" 
+(Anatole France, 1889)   
+</div>
+
 
 ## 
-Le principe de la reproductibilité est au fondement même des sciences  
-La reproductibilité est le meilleur test de la validité d'une expérimentation scientifique. "La science est infaillible ; mais les savants se trompent toujours" (Anatole France, 1889)  
-[CONSTAT] Par rapport aux sciences experimentales, Les sciences basées sur l'informatique ont l'avantage d'être plus facilement reproductibles.  
-[OBJECTIF] Accompagner les publications scientifiques des jeux de données et codes sources pour permettre aux collègues de reproduire les résultats.  
+
+
+* Le principe de la reproductibilité est au fondement même des sciences    
+* La reproductibilité est le meilleur test de la validité d'une expérimentation 
+scientifique. 
+* [CONSTAT] Par rapport aux sciences experimentales, Les sciences basées sur 
+l'informatique ont l'avantage d'être plus facilement reproductibles.    
+* [OBJECTIF] Accompagner les publications scientifiques des jeux de données et 
+codes sources pour permettre aux collègues de reproduire les résultats.    
+ 
+<div class="notes">
+The assessment of scientific
+results is possible through the availability of methods and data used by scientists,
+and reproducibility is a key element to validate studies.
+</div>
  
 ## The Reproducibility Spectrum
 
 <img src="./img/peng-spectrum.jpg" alt="Peng, 2011" style="width: 100%;"/>
 Peng, 2011
 
+<div class="notes">
+The main idea behind
+reproducible research is to release studies along with data and computer code that
+support scientific findings (Peng 2011).
+</div>
 
 
 ## Map Reproducibility ?
 
-Les cartes, comme les autres production graphiques ou statistiques sont des éléments à part entière des études scientifique.  
+* Maps are part of scientific studies and should be reproducible. 
 
-La grande majorité des cartes produites dans un contexte académique sont issues de processus comlexes. Elles sont donc souvent produites en utilisant une grande variété de logiciels et de formats.  
-
-Cette variété de formats et de logiciels rend difficile la reproduction des cartes.  
-
-
-## 
-We need a single tool to cover the chain of traitemetn.... to ensure an easy reproducibility 
-
-<img src="./img/Chaine-de-traitement1.png" alt="Drawing" style="width: 100%;"/>
-
-## Simplifier les chaines de traitement
-
-<img src="./img/Chaine-de-traitement2.png" alt="Drawing" style="width: 100%;"/>
+<div class="notes">
+We argue that maps, as other graphics or statistical outputs,
+are part of scientific studies and should, as much as possible, be reproducible.
+</div>
 
 
-## Les enjeux de la cartographie reproductible
+## Map Reproducibility ?
 
-__Un langage commun permetant de couvrir les différentes étapes de la constructuion cartographique__
+- Keep traces of computations   
+- Share methods    
+- Publish transparent studies
+- Update easily  
+- Work collectively  
+- Automatize tasks
+- Combine analysis and representations
 
-- Garder une trace cohérente des traitements effectués  
-- Partager ses méthodes  
-- Etre transparent, s'exposer à la critique  
-- Faciliter les mises à jour  
-- Travailler collectivement  
-- Automatiser des taches  
-- Lier fortement l'analyse et la représentation  
 
-## Cartographie reproductible
+## Map Reproducibility ?
 
-<img src="./img/Fig01.png" alt="Drawing" style="width: 100%;"/>
+Statistical maps production use a wide range of software products and data formats.
 
+<img src="./img/Chaine-de-traitement1.png" alt="Drawing"/>
+
+
+## Map Reproducibility ?
+
+* This diversity makes reproducibility difficult
+
+<img src="./img/Chaine-de-traitement2.png" alt="Drawing"/>
 
 
 
-# 2. Comment ?
+## Map Reproducibility ?
+
+<img src="./img/Fig01.png" alt="Drawing"/>
+
+We need a single tool to simplify the toolchain and ensure an easy reproducibility. 
+
+<div class="notes">
+We argue that in the reproducible research framework, researchers
+must use literate programming solutions that enable the full traceability of their
+studies. A script that describes every step of the process, from raw data to com-
+prehensive vector thematic maps that includes all statistical and geometrical
+transformations, is considered a full metadata document.
+</div>
+
+# HOW ?
+
+## Pick an appropriate tool
+
+* Availability - cost
+* Transparency - Open-source
+* Simplicity - access to functionnalities and help
+
+## Pick an appropriate tool
+
+__The R Software__:   
+<p style="text-align: left;">
+R is a free software environment for statistical computing and graphics. 
+It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.</p>
+
+<div class="notes">
+* Open Source (GNU General Public License)
+* Initially design for statistics But a large number of packages are dedicated to 
+spatial information management. 
+</div>
 
 
-## Quels critères pour choisir les bons outils
+## Pick an appropriate tool
 
-- Disponibilité (question du coût des licences)    
+R has:  
 
-- Transparence (open-source, licence d'utilisation)    
+- A large ecosystem of user-contributed extensions (packages)  
 
-- Simplicité d'utilisation (degrès d'adoption de la solution dans la communauté concernée)  
+- A pretty IDE (RStudio)  
 
+- Very good literate programming functionnalities (rmarkdown)  
 
-## Un jeu d'outils et de technologies
-
-
-* **Le logiciel R** 
-  * R est un langage et un environnement permettant de réaliser une variété de traitements statistiques et de représentations   graphiques.
-  * R est un logiciel libre sous license GNU General Public License.
-  * R est multiplateforme (GNU/Linux, Windows, OS X...).
-
-**10762 packages** dans le *Comprehensive R Archive Network* (CRAN) (6 juin 2017)
-
-
+<div class="notes">
+10762 packages in the *Comprehensive R Archive Network* (CRAN) (6 juin 2017)  
+</div>
 
 ## Simplifier les chaines de traitement
 
@@ -116,12 +164,12 @@ __Un langage commun permetant de couvrir les différentes étapes de la construc
 <img src="./img/Chaine-de-traitement3.png" alt="Drawing" style="width: 100%;"/>
 
 
-# 3. Le package cartography
+# 3. `cartography`
 
 
 ## MAP 1 
-<small>
-```{r, echo=TRUE, eval=TRUE, prompt=FALSE, message=FALSE, results='hide', lay=TRUE}
+
+```{r propS, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
 library(cartography)
 # Load data
 data(nuts2006)
@@ -144,7 +192,9 @@ propSymbolsLayer(spdf = nuts0.spdf, df = nuts0.df,
                    "Population, 2008\n(thousands of inh.)", 
                  legend.frame = F)
 # Layout plot
-layoutLayer(title = "propSymbolsLayer()", author = "", sources = "", 
+layoutLayer(title = "propSymbolsLayer()",
+            author = "Package cartography v1.4.2", 
+            sources = "Source: Eurostat, 2011", 
             frame = FALSE, scale = NULL, theme = "wine.pal", 
             north = TRUE)  
 dev.off()
@@ -154,9 +204,9 @@ dev.off()
 
 
 
-#                                                                              .
+#                                                                                                         .
 ```
-</small>
+
 
 ## map 1 
 
@@ -164,7 +214,7 @@ dev.off()
 
 ## Map 2 
 <small>
-```{r, echo=TRUE, eval=TRUE, prompt=FALSE, message=FALSE, results='hide', lay=TRUE}
+```{r choro, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
 # save map
 png(filename = "img/map2.png", width = 600, height = 535, res = 100)
 par(mar = c(0,0,1.2,0))
@@ -181,7 +231,9 @@ choroLayer(spdf = nuts0.spdf, df = nuts0.df, var = "gdpinh",
            lwd = 0.5, legend.pos = "right", 
            legend.title.txt = "GDP per inh., 2008\n(euros)", add = T)
 
-layoutLayer(title = "choroLayer()", author = "", sources = "", 
+layoutLayer(title = "choroLayer()",
+            author = "Package cartography v1.4.2", 
+            sources = "Source: Eurostat, 2011", 
             frame = FALSE, scale = NULL, theme = "green.pal", 
             north = FALSE)
 dev.off()
@@ -195,7 +247,7 @@ dev.off()
 
 
 
-#                                                                              .
+#                                                                                                         .
 ```
 </small>
 
@@ -207,7 +259,7 @@ dev.off()
 
 <small>
 
-```{r, echo=TRUE, eval=TRUE, prompt=FALSE, message=FALSE, results='hide', lay=TRUE}
+```{r choroPropS, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
 # save map
 png(filename = "img/map3.png", width = 600, height = 535, res = 100)
 par(mar = c(0,0,1.2,0))
@@ -234,10 +286,10 @@ propSymbolsLayer(spdf = nuts0.spdf, df = nuts0.df,
 
 # layout
 layoutLayer(title = "propSymbolsLayer() + choroLayer()", 
-            author = "Package cartography v1.4.1", 
-            sources = "Source: Eurostat, 2011", frame = FALSE, 
+            author = "Package cartography v1.4.2", 
+            sources = "Source: Eurostat, 2011", 
             scale = NULL, theme = "sand.pal", 
-            north = FALSE)
+            north = FALSE, frame = FALSE)
 dev.off()
 
 
@@ -245,7 +297,7 @@ dev.off()
 
 
 
-#                                                                              .
+#                                                                                                         .
 
 ```
 
@@ -259,7 +311,7 @@ dev.off()
 
 <small>
 
-```{r, echo=TRUE, eval=TRUE, prompt=FALSE, message=FALSE, results='hide', lay=TRUE}
+```{r propSchoro, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
 # save map
 png(filename = "img/map4.png", width = 600, height = 535, res = 100)
 par(mar = c(0,0,1.2,0))
@@ -289,8 +341,9 @@ propSymbolsChoroLayer(spdf = nuts0.spdf, df = nuts0.df,
 
 
 # layout
-layoutLayer(title = "propSymbolsChoroLayer()", author = "", 
-            sources = "", 
+layoutLayer(title = "propSymbolsChoroLayer()", 
+            author = "Package cartography v1.4.2", 
+            sources = "Source: Eurostat, 2011",
             frame = FALSE, 
             theme = "blue.pal", scale = 500, north = FALSE)
 dev.off()
@@ -300,17 +353,267 @@ dev.off()
 
 
 
-#                                                                              .
+#                                                                                                         .
 ```
 
 </small>
 
-## map 4
+## Map 4
 
 <img src="./img/map4.png" alt="map4"/>
 
+<div class="notes">
+The three next maps are more complex. Their production involves
+geo-processing operations, usually scattered across multiple steps and intermediate
+files. cartography simplifies the process by wrapping all operations in its
+functions.
+</div>
+
+## Map 5
+
+<small>
+
+```{r grid, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
+# Create a grid layer
+mygrid <- getGridLayer(spdf = nuts3.spdf, cellsize = 1e+05, 
+                       type = "hexagonal")
+# Compute data for the grid layer
+df1 <- getGridData(x = mygrid, df = nuts3.df, var = "pop2008")
+df2 <- getGridData(x = mygrid, df = nuts3.df, var = "pop1999")
+
+# Compute the compound annual growth rate
+df1$cagr <- (((df1$pop2008/df2$pop1999)^(1/9)) - 1) * 100
+v <- getBreaks(v = df1$cagr, method = "quantile", nclass = 10)
+v[5] <- 0
+
+# set a color palette
+cols <- c("#f18b61", "#f7b48c", "#f3d9b7", "#f1eccd", 
+          "#c0dec2", "#91caa4", "#63b285", "#329966", 
+          "#26734d", "#1a4c33")
+
+
+# save the map in png format
+png(filename = "img/map5.png", width = 600, height = 535, res = 100)
+par(mar = c(0, 0, 1.2, 0))
+
+# Plot a background layers
+plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
+plot(world.spdf, col = "#CCCCCC", border = NA, add = TRUE)
+
+# plot the choropleth grid
+choroLayer(spdf = mygrid$spdf, df = df1, var = "cagr", add = TRUE, 
+           col = cols, lwd = 0.6, border = "#FFFFFF60", 
+           legend.pos = "right", breaks = v, legend.values.rnd = 2, 
+           legend.title.txt = "Compound Annual\nGrowth Rate")
+
+# plot countries boundaries
+plot(nuts0.spdf, add = T, col = NA, border = "#56514c", lwd = 0.7)
+
+# Plot a layout
+layoutLayer(title = "Demographic Trends, 1999-2008", 
+            author = "Package cartography v1.4.2", 
+            sources = "Source: Eurostat, 2011", frame = TRUE, 
+            scale = 500, north = TRUE, theme = "taupe.pal")
+dev.off()
 
 
 
+
+
+
+#                                                                                                         .
+```
+
+
+</small>
+
+## Map 5
+
+<img src="./img/map5.png" alt="map5"/>
+
+<div class="notes">
+The “grid-cell” representation is a method that overcomes the arbitrariness and
+irregularity of administrative divisions. It highlights the main spatial trends by
+splitting the territory in regular blocks. Statistical values are distributed over a
+regular grid. Cell values are calculated taking into account the share of intersected
+areas between initial units and grid cells, and are eventually discretized and the grid
+is displayed as a choropleth map.
+In cartography, this process relies on three functions. getGridLayer
+builds a regular grid (squares or hexagons) based on a spatial object and provides
+the shares of intersected areas. getGridData computes data that matches the grid
+layer. Finally, choroLayer displays the grid on a choropleth map.
+</div>
+
+## Map 6
+
+
+
+```{r disc, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
+# Get a SpatialLinesDataFrame of countries borders
+nuts2.contig <- getBorders(nuts2.spdf)
+nuts2.df$gdpcap <- nuts2.df$gdppps2008/nuts2.df$pop2008 * 1e+06
+
+# save the map in png format
+png(filename = "img/map6.png", width = 600, height = 535, res = 100)
+par(mar = c(0, 0, 1.2, 0))
+
+# Plot a background layers
+plot(nuts2.spdf, border = NA, col = NA, bg = "#A6CAE0")
+plot(world.spdf, col = "#E3DEBF", border = NA, add = TRUE)
+
+# Plot GDP per capita with a choropleth layer
+choroLayer(spdf = nuts2.spdf, df = nuts2.df, var = "gdpcap", 
+           border = "grey20", lwd = 0.2, 
+           col = carto.pal(pal1 = "green.pal", n1 = 3, "sand.pal", 3), 
+           method = "quantile", nclass = 6, add = TRUE, 
+           legend.pos = "right", legend.values.rnd = -2, 
+           legend.title.txt = "GDP per Capita\n(in euros)")
+
+# Plot discontinuities
+discLayer(spdf = nuts2.contig, df = nuts2.df, 
+          var = "gdpcap", type = "rel", 
+          method = "equal", nclass = 3, threshold = 0.4, 
+          sizemin = 0.7, sizemax = 6, col = "red", 
+          legend.values.rnd = 1, legend.pos = "topright", add = TRUE,
+          legend.title.txt = 
+            "Discontinuities in \nGDP per Capita\n(relative)")
+
+# Layout
+layoutLayer(title = "Wealth Disparities in Europe, 2008", 
+            author = "Package cartography v1.4.2", 
+            sources = "Source: Eurostat, 2011", frame = TRUE, 
+            scale = 500, north = FALSE, theme = "grey.pal")
+dev.off()
+
+
+
+
+
+
+
+#                                                                                                         .
+```
+
+
+
+
+## Map 6
+
+<img src="./img/map6.png" alt="map6"/>
+
+<div class="notes">
+Discontinuity maps are based on the variation of a phenomenon in contiguous
+administrative units. This kind of representation does not focus on homogeneous
+regions, but rather on spatial breaks. Here, the thickness of the borders points out
+discontinuities intensities.
+The first step to build these maps is to extract borders from contiguous spatial
+units. The second step is to compute a discontinuity measure (either a ratio or an
+absolute difference). The third step consists in applying various values to borders’
+thickness. Combining these discontinuities with a choropleth representation helps
+understanding the discontinuity direction (which one of two regions records the
+higher value).
+In cartography, getBorders is used to extract borders between spatial
+units. discLayer function computes and
+displays discontinuities. A line’s width reflects the discontinuity level between two
+neighboring units. The discontinuities layer can be supplemented by a choropleth
+layer.
+</div>
+
+
+## Map 7
+
+<small>
+```{r smooth, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
+# Create a grid layer
+mygrid <- getGridLayer(spdf = nuts3.spdf, cellsize = 50000, type = "regular")
+
+# transform gdp in euros
+nuts3.df$gdp <- nuts3.df$gdppps2008 * 1e+06
+# Compute data for the grid layer
+df1 <- getGridData(x = mygrid, df = nuts3.df, var = "pop2008")
+df2 <- getGridData(x = mygrid, df = nuts3.df, var = "gdp")
+df1$gdp <- df2$gdp
+
+# list of breaks
+v <- c(2920, 5000, 10000, 15000, 20000, 23500, 30000, 35000, 40000, 42720)
+
+# save the map to a png file
+# save the map in png format
+png(filename = "img/map7.png", width = 600, height = 535, res = 100)
+par(mar = c(0, 0, 1.2, 0))
+
+# Plot a background layers
+plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
+plot(world.spdf, col = "#E3DEBF", border = NA, add = TRUE)
+
+# set a color palette
+cols <- c(rev(carto.pal("green.pal", 5)), carto.pal("orange.pal", 4))
+
+# compute & display the potential map
+smoothLayer(spdf = mygrid$spdf, df = df1, 
+            var = "gdp", var2 = "pop2008", breaks = v, 
+    span = 1e+05, beta = 2, mask = nuts0.spdf, 
+    resolution = 49000, col = cols, 
+    legend.title.txt = "Potential\nGDP per capita\n(in euros)", 
+    legend.values.rnd = -2, 
+    border = "grey80", lwd = 0.5, add = T, legend.pos = "topright")
+
+# plot Europe contour
+plot(rgeos::gBuffer(nuts0.spdf, FALSE, 1), add = T, col = NA, 
+     border = "grey50")
+
+# plot a layout
+layoutLayer(title = "Wealth Inequalities in Europe, 2008", 
+            author = "Package cartography v1.4.2", 
+            sources = "Source: Eurostat, 2011", frame = TRUE, 
+            scale = 500, north = FALSE, theme = "sand.pal")
+
+# plot a text on the map
+text(x = 6271272, y = 3600000, 
+     labels = "Distance function:\n- type = exponential\n- beta = 2\n- span = 100 km", 
+     cex = 0.8, adj = 0, font = 3)
+
+dev.off()
+
+
+
+
+
+
+
+
+
+
+
+#                                                                                                         .
+```
+
+</small>
+
+
+## Map 7
+
+<img src="./img/map7.png" alt="map7"/>
+
+<div class="notes">
+Unlike choropleth maps that imply a phenomenon is spatially discrete, isopleth
+maps are based on the assumption that a phenomenon is spatially continuous. These
+maps use a spatial interaction modeling approach aiming at computing indicators
+based on stock values weighted by distances. This spatial representation is independent 
+from the initial heterogeneity of the territorial division. The
+result is easy to read and can be considered as a bypass of the Modifiable Areal Unit
+Problem (MAUP).
+In cartography the smoothLayer function, that heavily depends on
+SpatialPosition, allows a quick computation
+of these maps. The function takes a marked point layer and a set of parameters (a
+spatial interaction function and its parameters) as inputs and displays an isopleth
+map layer.
+</div>
+
+# Thank you
+
+## Paper / Code / Slides
+
+https://github.com/riatelab/ReproducibleCartography/
 
 

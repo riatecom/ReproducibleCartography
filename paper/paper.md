@@ -7,8 +7,8 @@ Reproducible Cartography
 
 **Keywords:** Reproducibility, Open-source, R, Statistical cartography, Map workflow
 
-## 1. Introduction
-
+1. Introduction
+---------------
 
 Scientific claims have to be supported by evidences. The assessment of scientific results is possible through the availability of methods and data used by scientists and reproducibility is a key element to validate studies. The main idea behind reproducible research is to release studies with the data and the computer code that support their scientific claims (Peng 2011).
 
@@ -23,8 +23,8 @@ To be considered as an evidence, a map should be open to debate and its construc
 
 In this paper we propose a unified workflow that fully integrates map production in a reproducible process. This solution is based on the R software through the development of the cartography package, an extension that fills the need of specific thematic mapping solution within the software.
 
-## 2. From GUI to Script
-
+2. From GUI to Script
+---------------------
 
 ### 2.1 A Step Backward?
 
@@ -52,8 +52,8 @@ Several packages already exist to produce thematic maps in R, most of them are d
 
 With the cartography package we propose an extension of the R ecosystem that enables fully reproducible cartography along with data collection and data analysis. cartography is built upon and benefits from the development of two of the main spatial related packages (sp & rgeos).
 
-## 3. The cartography Package
-
+3. The cartography Package
+--------------------------
 
 ### 3.1 Design
 
@@ -371,8 +371,8 @@ Unlike choropleth maps, which represent data as discrete values, isopleth maps a
 
 In cartography, the smoothLayer function, that heavily depends on the SpatialPosition (Giraud and Commenges 2016) package, allow to compute quickly these maps. The function takes as inputs a marked point layer and a set of parameters (a spatial interaction function and its parameters) and outputs an isopleth map layer (figure 6).
 
-## 4. Conclusion
-
+4. Conclusion
+-------------
 
 cartography was accepted on the CRAN on October 5, 2015 in its 1.0 version. It was updated 3 times in its first year (current version is 1.4.0). The development of the package take place publicly on the on-line version control system GitHub.[8] As of October 23, 2016 the package has been downloaded 6,414 times from the RStudio CRAN.[9] This figure reveals an actual need of thematic mapping tools in reproducible research workflows.
 
@@ -411,7 +411,8 @@ sessionInfo()
     [13] rmarkdown_1.5   tools_3.4.0     stringr_1.2.0   yaml_2.1.14    
     [17] compiler_3.4.0  classInt_0.1-24 rgeos_0.3-23    htmltools_0.3.6
 
-## References
+References
+----------
 
 Bivand, R. S., & Rundel, C. (2016). *Rgeos: Interface to geometry engine - open source (GEOS)*. <https://CRAN.R-project.org/package=rgeos>
 
