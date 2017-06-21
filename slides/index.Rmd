@@ -1,0 +1,316 @@
+---
+title: "Reproducible Cartography: An Extension of the R Software for Thematic Mapping"
+author: "T. Giraud & N. Lambert"
+date: "July 6, 2017 - ICC 2017 - Washington DC, USA"
+output:
+  revealjs::revealjs_presentation:
+    theme: moon
+    highlight: tango
+    center: true
+    self_contained: true
+---
+
+```{r knitr_init, echo=FALSE, cache=FALSE}
+library(knitr)
+## Global options
+options(max.print="90")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=FALSE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=90)
+options(width = 90)
+
+
+
+
+
+```
+
+# La science est infaillible ; mais les savants se trompent toujours
+
+## 
+Le principe de la reproductibilité est au fondement même des sciences  
+La reproductibilité est le meilleur test de la validité d'une expérimentation scientifique. "La science est infaillible ; mais les savants se trompent toujours" (Anatole France, 1889)  
+[CONSTAT] Par rapport aux sciences experimentales, Les sciences basées sur l'informatique ont l'avantage d'être plus facilement reproductibles.  
+[OBJECTIF] Accompagner les publications scientifiques des jeux de données et codes sources pour permettre aux collègues de reproduire les résultats.  
+ 
+## The Reproducibility Spectrum
+
+<img src="./img/peng-spectrum.jpg" alt="Peng, 2011" style="width: 100%;"/>
+Peng, 2011
+
+
+
+## Map Reproducibility ?
+
+Les cartes, comme les autres production graphiques ou statistiques sont des éléments à part entière des études scientifique.  
+
+La grande majorité des cartes produites dans un contexte académique sont issues de processus comlexes. Elles sont donc souvent produites en utilisant une grande variété de logiciels et de formats.  
+
+Cette variété de formats et de logiciels rend difficile la reproduction des cartes.  
+
+
+## 
+We need a single tool to cover the chain of traitemetn.... to ensure an easy reproducibility 
+
+<img src="./img/Chaine-de-traitement1.png" alt="Drawing" style="width: 100%;"/>
+
+## Simplifier les chaines de traitement
+
+<img src="./img/Chaine-de-traitement2.png" alt="Drawing" style="width: 100%;"/>
+
+
+## Les enjeux de la cartographie reproductible
+
+__Un langage commun permetant de couvrir les différentes étapes de la constructuion cartographique__
+
+- Garder une trace cohérente des traitements effectués  
+- Partager ses méthodes  
+- Etre transparent, s'exposer à la critique  
+- Faciliter les mises à jour  
+- Travailler collectivement  
+- Automatiser des taches  
+- Lier fortement l'analyse et la représentation  
+
+## Cartographie reproductible
+
+<img src="./img/Fig01.png" alt="Drawing" style="width: 100%;"/>
+
+
+
+
+# 2. Comment ?
+
+
+## Quels critères pour choisir les bons outils
+
+- Disponibilité (question du coût des licences)    
+
+- Transparence (open-source, licence d'utilisation)    
+
+- Simplicité d'utilisation (degrès d'adoption de la solution dans la communauté concernée)  
+
+
+## Un jeu d'outils et de technologies
+
+
+* **Le logiciel R** 
+  * R est un langage et un environnement permettant de réaliser une variété de traitements statistiques et de représentations   graphiques.
+  * R est un logiciel libre sous license GNU General Public License.
+  * R est multiplateforme (GNU/Linux, Windows, OS X...).
+
+**10762 packages** dans le *Comprehensive R Archive Network* (CRAN) (6 juin 2017)
+
+
+
+## Simplifier les chaines de traitement
+
+<img src="./img/Chaine-de-traitement2.png" alt="Drawing" style="width: 100%;"/>
+
+## Simplifier les chaines de traitement
+
+<img src="./img/Chaine-de-traitement3.png" alt="Drawing" style="width: 100%;"/>
+
+
+# 3. Le package cartography
+
+
+## MAP 1 
+<small>
+```{r, echo=TRUE, eval=TRUE, prompt=FALSE, message=FALSE, results='hide', lay=TRUE}
+library(cartography)
+# Load data
+data(nuts2006)
+# save map
+png(filename = "img/map1.png", width = 600, height = 535, res = 100)
+par(mar = c(0,0,1.2,0))
+# Plot a background layers
+plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
+plot(world.spdf, col = "#E3DEBF", border = NA, add = TRUE)
+plot(nuts0.spdf, col = "#D1914D", border = "white", lwd = 0.5, 
+     add = TRUE)
+# transform to thousand of inhabitants
+nuts0.df$pop <- nuts0.df$pop2008/1000
+# Plot the population
+propSymbolsLayer(spdf = nuts0.spdf, df = nuts0.df, 
+                 inches = 0.2, lwd = 0.5, 
+                 var = "pop", legend.pos = "right", 
+                 legend.values.rnd = 0, 
+                 legend.title.txt = 
+                   "Population, 2008\n(thousands of inh.)", 
+                 legend.frame = F)
+# Layout plot
+layoutLayer(title = "propSymbolsLayer()", author = "", sources = "", 
+            frame = FALSE, scale = NULL, theme = "wine.pal", 
+            north = TRUE)  
+dev.off()
+
+
+
+
+
+
+#                                                                              .
+```
+</small>
+
+## map 1 
+
+<img src="./img/map1.png" alt="map1"/>
+
+## Map 2 
+<small>
+```{r, echo=TRUE, eval=TRUE, prompt=FALSE, message=FALSE, results='hide', lay=TRUE}
+# save map
+png(filename = "img/map2.png", width = 600, height = 535, res = 100)
+par(mar = c(0,0,1.2,0))
+# compute the GDP per inhabitants
+nuts0.df$gdpinh <- nuts0.df$gdppps2008 * 1e+06/nuts0.df$pop2008
+# Plot a background layers
+plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
+plot(world.spdf, col = "#E3DEBF", border = NA, add = TRUE)
+
+# plot the gdp per inhabitant
+choroLayer(spdf = nuts0.spdf, df = nuts0.df, var = "gdpinh", 
+           col = carto.pal(pal1 = "green.pal", n1 = 4), 
+           method = "quantile", nclass = 4, border = "white", 
+           lwd = 0.5, legend.pos = "right", 
+           legend.title.txt = "GDP per inh., 2008\n(euros)", add = T)
+
+layoutLayer(title = "choroLayer()", author = "", sources = "", 
+            frame = FALSE, scale = NULL, theme = "green.pal", 
+            north = FALSE)
+dev.off()
+
+
+
+
+
+
+
+
+
+
+#                                                                              .
+```
+</small>
+
+## Map 2
+
+<img src="./img/map2.png" alt="map2"/>
+
+## Map 3
+
+<small>
+
+```{r, echo=TRUE, eval=TRUE, prompt=FALSE, message=FALSE, results='hide', lay=TRUE}
+# save map
+png(filename = "img/map3.png", width = 600, height = 535, res = 100)
+par(mar = c(0,0,1.2,0))
+# Plot a background layers
+plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
+plot(world.spdf, col = "#E3DEBF", border = NA, add = TRUE)
+
+# Plot the gdp per inhabitant
+choroLayer(spdf = nuts0.spdf, df = nuts0.df, var = "gdpinh", 
+           col = carto.pal(pal1 = "sand.pal", 
+                           n1 = 4), method = "quantile", 
+           nclass = 4, border = "white", lwd = 0.5, 
+           legend.pos = "right", 
+           legend.title.txt = "GDP per inh., 2008\n(euros)", add = T)
+
+# Plot the population
+propSymbolsLayer(spdf = nuts0.spdf, df = nuts0.df, 
+                 inches = 0.2, lwd = 1.25, 
+                 var = "pop", col = NA, border = "#940000", 
+                 legend.pos = "topright", legend.values.rnd = 0, 
+                 legend.title.txt = 
+                   "Population, 2008\n(thousands of inh.)", 
+                 legend.frame = F)
+
+# layout
+layoutLayer(title = "propSymbolsLayer() + choroLayer()", 
+            author = "Package cartography v1.4.1", 
+            sources = "Source: Eurostat, 2011", frame = FALSE, 
+            scale = NULL, theme = "sand.pal", 
+            north = FALSE)
+dev.off()
+
+
+
+
+
+
+#                                                                              .
+
+```
+
+</small>
+
+## Map 3
+
+<img src="./img/map3.png" alt="map3"/>
+
+## Map 4
+
+<small>
+
+```{r, echo=TRUE, eval=TRUE, prompt=FALSE, message=FALSE, results='hide', lay=TRUE}
+# save map
+png(filename = "img/map4.png", width = 600, height = 535, res = 100)
+par(mar = c(0,0,1.2,0))
+# Plot a background layers
+plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
+plot(world.spdf, col = "#E3DEBF", border = NA, add = TRUE)
+plot(nuts0.spdf, col = "#EAE797", border = "white", lwd = 0.5, 
+     add = TRUE)
+
+# Plot symbols with choropleth coloration
+propSymbolsChoroLayer(spdf = nuts0.spdf, df = nuts0.df, 
+                      var = "pop", inches = 0.3, 
+                      var2 = "gdpinh", 
+                      col = carto.pal(pal1 = "blue.pal", n1 = 4), 
+                      symbols = "square", 
+                      method = "quantile", nclass = 4, 
+                      border = "grey50", 
+                      lwd = 0.5, legend.var.pos = "topright", 
+                      legend.var.values.rnd = 0, 
+                      legend.var.style = "e", 
+                      legend.var2.pos = "right", 
+                      legend.var2.values.rnd = 0,
+                      legend.var.title.txt = 
+                        "Population, 2008\n(thousands of inh.)",
+                      legend.var2.title.txt = 
+                        "GDP per inh., 2008\n(euros)")
+
+
+# layout
+layoutLayer(title = "propSymbolsChoroLayer()", author = "", 
+            sources = "", 
+            frame = FALSE, 
+            theme = "blue.pal", scale = 500, north = FALSE)
+dev.off()
+
+
+
+
+
+
+#                                                                              .
+```
+
+</small>
+
+## map 4
+
+<img src="./img/map4.png" alt="map4"/>
+
+
+
+
+
+

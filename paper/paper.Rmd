@@ -449,6 +449,14 @@ cartography was accepted on the CRAN on October 5, 2015 in its 1.0 version. It w
 Eventually, we argue that to obtain a full acknowledgement as scientific products, maps should tend to be more reproducible. R and the cartography package (among other possibilities) could be relevant tools to ensure reproducibility in the academic context, hence promoting transparent scientific debates.
 
 
+```{r, echo = FALSE}
+library(cartography)
+```
+
+```{r}
+sessionInfo()
+```
+
 
 ## References
 
@@ -461,3 +469,7 @@ Eventually, we argue that to obtain a full acknowledgement as scientific product
 [^pub]: https://github.com/riatelab/ReproducibleCartography
 [^git]: https://github.com/Groupe-ElementR/cartography
 [^stat]: This number underestimates the global number of download. It is difficult to obtain statistics on the number of time a package has been downloaded. The CRAN is deployed across various mirror sites and only the RStudio's one allows to gather this information.
+
+
+
+
