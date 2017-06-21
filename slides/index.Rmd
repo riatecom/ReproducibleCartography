@@ -155,20 +155,21 @@ R has:
 10762 packages in the *Comprehensive R Archive Network* (CRAN) (6 juin 2017)  
 </div>
 
-## Simplifier les chaines de traitement
+## From a complex toolchain...
 
 <img src="./img/Chaine-de-traitement2.png" alt="Drawing" style="width: 100%;"/>
 
-## Simplifier les chaines de traitement
+## ... to an unified workflow
 
 <img src="./img/Chaine-de-traitement3.png" alt="Drawing" style="width: 100%;"/>
 
 
-# 3. `cartography`
+# cartography
 
 
-## MAP 1 
+## Some simple maps
 
+<small>
 ```{r propS, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
 library(cartography)
 # Load data
@@ -206,13 +207,14 @@ dev.off()
 
 #                                                                                                         .
 ```
+</small>
 
 
-## map 1 
+## Some simple maps
 
 <img src="./img/map1.png" alt="map1"/>
 
-## Map 2 
+## Some simple maps
 <small>
 ```{r choro, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
 # save map
@@ -251,11 +253,11 @@ dev.off()
 ```
 </small>
 
-## Map 2
+## Some simple maps
 
 <img src="./img/map2.png" alt="map2"/>
 
-## Map 3
+## Some simple maps
 
 <small>
 
@@ -303,11 +305,11 @@ dev.off()
 
 </small>
 
-## Map 3
+## Some simple maps
 
 <img src="./img/map3.png" alt="map3"/>
 
-## Map 4
+## Some simple maps
 
 <small>
 
@@ -358,7 +360,7 @@ dev.off()
 
 </small>
 
-## Map 4
+## Some simple maps
 
 <img src="./img/map4.png" alt="map4"/>
 
@@ -369,7 +371,7 @@ files. cartography simplifies the process by wrapping all operations in its
 functions.
 </div>
 
-## Map 5
+## Gridded Map
 
 <small>
 
@@ -427,7 +429,7 @@ dev.off()
 
 </small>
 
-## Map 5
+## Gridded Map
 
 <img src="./img/map5.png" alt="map5"/>
 
@@ -444,10 +446,10 @@ the shares of intersected areas. getGridData computes data that matches the grid
 layer. Finally, choroLayer displays the grid on a choropleth map.
 </div>
 
-## Map 6
 
+## Discontinuities map
 
-
+<small>
 ```{r disc, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
 # Get a SpatialLinesDataFrame of countries borders
 nuts2.contig <- getBorders(nuts2.spdf)
@@ -493,11 +495,10 @@ dev.off()
 
 #                                                                                                         .
 ```
+</small>
 
 
-
-
-## Map 6
+## Discontinuities map
 
 <img src="./img/map6.png" alt="map6"/>
 
@@ -520,7 +521,7 @@ layer.
 </div>
 
 
-## Map 7
+## Isopleth map
 
 <small>
 ```{r smooth, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
@@ -591,7 +592,7 @@ dev.off()
 </small>
 
 
-## Map 7
+## Isopleth map
 
 <img src="./img/map7.png" alt="map7"/>
 

@@ -588,15 +588,16 @@ R is a free software environment for statistical computing and graphics. It comp
 <aside class="notes">
 <p>10762 packages in the <em>Comprehensive R Archive Network</em> (CRAN) (6 juin 2017)</p>
 </aside>
-</section><section id="simplifier-les-chaines-de-traitement" class="slide level2">
-<h1>Simplifier les chaines de traitement</h1>
+</section><section id="from-a-complex-toolchain" class="slide level2">
+<h1>From a complex toolchain…</h1>
 <p><img src="img/Chaine-de-traitement2.png" alt="Drawing" style="width: 100%;"/></p>
-</section><section id="simplifier-les-chaines-de-traitement-1" class="slide level2">
-<h1>Simplifier les chaines de traitement</h1>
+</section><section id="to-an-unified-workflow" class="slide level2">
+<h1>… to an unified workflow</h1>
 <p><img src="img/Chaine-de-traitement3.png" alt="Drawing" style="width: 100%;"/></p>
 </section></section>
-<section><section id="cartography" class="titleslide slide level1"><h1>3. <code>cartography</code></h1></section><section id="map-1" class="slide level2">
-<h1>MAP 1</h1>
+<section><section id="cartography" class="titleslide slide level1"><h1>cartography</h1></section><section id="some-simple-maps" class="slide level2">
+<h1>Some simple maps</h1>
+<p><small></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cartography)
 <span class="co"># Load data</span>
 <span class="kw">data</span>(nuts2006)
@@ -632,11 +633,12 @@ nuts0.df$pop &lt;-<span class="st"> </span>nuts0.df$pop2008/<span class="dv">100
 
 
 <span class="co">#                                                                                                         .</span></code></pre></div>
-</section><section id="map-1-1" class="slide level2">
-<h1>map 1</h1>
+<p></small></p>
+</section><section id="some-simple-maps-1" class="slide level2">
+<h1>Some simple maps</h1>
 <p><img src="img/map1.png" alt="map1"/></p>
-</section><section id="map-2" class="slide level2">
-<h1>Map 2</h1>
+</section><section id="some-simple-maps-2" class="slide level2">
+<h1>Some simple maps</h1>
 <p><small></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># save map</span>
 <span class="kw">png</span>(<span class="dt">filename =</span> <span class="st">&quot;img/map2.png&quot;</span>, <span class="dt">width =</span> <span class="dv">600</span>, <span class="dt">height =</span> <span class="dv">535</span>, <span class="dt">res =</span> <span class="dv">100</span>)
@@ -672,11 +674,11 @@ nuts0.df$gdpinh &lt;-<span class="st"> </span>nuts0.df$gdppps2008 *<span class="
 
 <span class="co">#                                                                                                         .</span></code></pre></div>
 <p></small></p>
-</section><section id="map-2-1" class="slide level2">
-<h1>Map 2</h1>
+</section><section id="some-simple-maps-3" class="slide level2">
+<h1>Some simple maps</h1>
 <p><img src="img/map2.png" alt="map2"/></p>
-</section><section id="map-3" class="slide level2">
-<h1>Map 3</h1>
+</section><section id="some-simple-maps-4" class="slide level2">
+<h1>Some simple maps</h1>
 <p><small></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># save map</span>
 <span class="kw">png</span>(<span class="dt">filename =</span> <span class="st">&quot;img/map3.png&quot;</span>, <span class="dt">width =</span> <span class="dv">600</span>, <span class="dt">height =</span> <span class="dv">535</span>, <span class="dt">res =</span> <span class="dv">100</span>)
@@ -717,11 +719,11 @@ nuts0.df$gdpinh &lt;-<span class="st"> </span>nuts0.df$gdppps2008 *<span class="
 
 <span class="co">#                                                                                                         .</span></code></pre></div>
 <p></small></p>
-</section><section id="map-3-1" class="slide level2">
-<h1>Map 3</h1>
+</section><section id="some-simple-maps-5" class="slide level2">
+<h1>Some simple maps</h1>
 <p><img src="img/map3.png" alt="map3"/></p>
-</section><section id="map-4" class="slide level2">
-<h1>Map 4</h1>
+</section><section id="some-simple-maps-6" class="slide level2">
+<h1>Some simple maps</h1>
 <p><small></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># save map</span>
 <span class="kw">png</span>(<span class="dt">filename =</span> <span class="st">&quot;img/map4.png&quot;</span>, <span class="dt">width =</span> <span class="dv">600</span>, <span class="dt">height =</span> <span class="dv">535</span>, <span class="dt">res =</span> <span class="dv">100</span>)
@@ -766,14 +768,14 @@ nuts0.df$gdpinh &lt;-<span class="st"> </span>nuts0.df$gdppps2008 *<span class="
 
 <span class="co">#                                                                                                         .</span></code></pre></div>
 <p></small></p>
-</section><section id="map-4-1" class="slide level2">
-<h1>Map 4</h1>
+</section><section id="some-simple-maps-7" class="slide level2">
+<h1>Some simple maps</h1>
 <p><img src="img/map4.png" alt="map4"/></p>
 <aside class="notes">
 <p>The three next maps are more complex. Their production involves geo-processing operations, usually scattered across multiple steps and intermediate files. cartography simplifies the process by wrapping all operations in its functions.</p>
 </aside>
-</section><section id="map-5" class="slide level2">
-<h1>Map 5</h1>
+</section><section id="gridded-map" class="slide level2">
+<h1>Gridded Map</h1>
 <p><small></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a grid layer</span>
 mygrid &lt;-<span class="st"> </span><span class="kw">getGridLayer</span>(<span class="dt">spdf =</span> nuts3.spdf, <span class="dt">cellsize =</span> <span class="fl">1e+05</span>, 
@@ -824,14 +826,15 @@ cols &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&q
 
 <span class="co">#                                                                                                         .</span></code></pre></div>
 <p></small></p>
-</section><section id="map-5-1" class="slide level2">
-<h1>Map 5</h1>
+</section><section id="gridded-map-1" class="slide level2">
+<h1>Gridded Map</h1>
 <p><img src="img/map5.png" alt="map5"/></p>
 <aside class="notes">
 <p>The “grid-cell” representation is a method that overcomes the arbitrariness and irregularity of administrative divisions. It highlights the main spatial trends by splitting the territory in regular blocks. Statistical values are distributed over a regular grid. Cell values are calculated taking into account the share of intersected areas between initial units and grid cells, and are eventually discretized and the grid is displayed as a choropleth map. In cartography, this process relies on three functions. getGridLayer builds a regular grid (squares or hexagons) based on a spatial object and provides the shares of intersected areas. getGridData computes data that matches the grid layer. Finally, choroLayer displays the grid on a choropleth map.</p>
 </aside>
-</section><section id="map-6" class="slide level2">
-<h1>Map 6</h1>
+</section><section id="discontinuities-map" class="slide level2">
+<h1>Discontinuities map</h1>
+<p><small></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get a SpatialLinesDataFrame of countries borders</span>
 nuts2.contig &lt;-<span class="st"> </span><span class="kw">getBorders</span>(nuts2.spdf)
 nuts2.df$gdpcap &lt;-<span class="st"> </span>nuts2.df$gdppps2008/nuts2.df$pop2008 *<span class="st"> </span><span class="fl">1e+06</span>
@@ -875,14 +878,15 @@ nuts2.df$gdpcap &lt;-<span class="st"> </span>nuts2.df$gdppps2008/nuts2.df$pop20
 
 
 <span class="co">#                                                                                                         .</span></code></pre></div>
-</section><section id="map-6-1" class="slide level2">
-<h1>Map 6</h1>
+<p></small></p>
+</section><section id="discontinuities-map-1" class="slide level2">
+<h1>Discontinuities map</h1>
 <p><img src="img/map6.png" alt="map6"/></p>
 <aside class="notes">
 <p>Discontinuity maps are based on the variation of a phenomenon in contiguous administrative units. This kind of representation does not focus on homogeneous regions, but rather on spatial breaks. Here, the thickness of the borders points out discontinuities intensities. The first step to build these maps is to extract borders from contiguous spatial units. The second step is to compute a discontinuity measure (either a ratio or an absolute difference). The third step consists in applying various values to borders’ thickness. Combining these discontinuities with a choropleth representation helps understanding the discontinuity direction (which one of two regions records the higher value). In cartography, getBorders is used to extract borders between spatial units. discLayer function computes and displays discontinuities. A line’s width reflects the discontinuity level between two neighboring units. The discontinuities layer can be supplemented by a choropleth layer.</p>
 </aside>
-</section><section id="map-7" class="slide level2">
-<h1>Map 7</h1>
+</section><section id="isopleth-map" class="slide level2">
+<h1>Isopleth map</h1>
 <p><small></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a grid layer</span>
 mygrid &lt;-<span class="st"> </span><span class="kw">getGridLayer</span>(<span class="dt">spdf =</span> nuts3.spdf, <span class="dt">cellsize =</span> <span class="dv">50000</span>, <span class="dt">type =</span> <span class="st">&quot;regular&quot;</span>)
@@ -947,8 +951,8 @@ cols &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">re
 
 <span class="co">#                                                                                                         .</span></code></pre></div>
 <p></small></p>
-</section><section id="map-7-1" class="slide level2">
-<h1>Map 7</h1>
+</section><section id="isopleth-map-1" class="slide level2">
+<h1>Isopleth map</h1>
 <p><img src="img/map7.png" alt="map7"/></p>
 <aside class="notes">
 <p>Unlike choropleth maps that imply a phenomenon is spatially discrete, isopleth maps are based on the assumption that a phenomenon is spatially continuous. These maps use a spatial interaction modeling approach aiming at computing indicators based on stock values weighted by distances. This spatial representation is independent from the initial heterogeneity of the territorial division. The result is easy to read and can be considered as a bypass of the Modifiable Areal Unit Problem (MAUP). In cartography the smoothLayer function, that heavily depends on SpatialPosition, allows a quick computation of these maps. The function takes a marked point layer and a set of parameters (a spatial interaction function and its parameters) as inputs and displays an isopleth map layer.</p>
