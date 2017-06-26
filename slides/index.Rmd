@@ -29,10 +29,7 @@ options(width = 90)
 ```
 
 
-# touche s pour faire apparaitre les notes dans une seconde fenêtre
-
-
-# "Science is infallible; but scholars are always wrong."
+# "Science is infallible; <br/> but scientists are always wrong."<br/><br/><img src="./img/wrong.jpg" alt="science" style="border:0px"/>
 
 <div class="notes">
 "La science est infaillible ; mais les savants se trompent toujours" 
@@ -40,17 +37,14 @@ options(width = 90)
 </div>
 
 
-## 
+## Reproducible Research
 
+* Sciences are based on the principle of reproducibility.
 
-* Le principe de la reproductibilité est au fondement même des sciences    
-* La reproductibilité est le meilleur test de la validité d'une expérimentation 
-scientifique. 
-* [CONSTAT] Par rapport aux sciences experimentales, Les sciences basées sur 
-l'informatique ont l'avantage d'être plus facilement reproductibles.    
-* [OBJECTIF] Accompagner les publications scientifiques des jeux de données et 
-codes sources pour permettre aux collègues de reproduire les résultats.    
- 
+* Reproducibility helps to assess the validity of studies.
+
+* It may be easier to reproduce studies in computer based sciences. 
+
 <div class="notes">
 The assessment of scientific
 results is possible through the availability of methods and data used by scientists,
@@ -59,8 +53,13 @@ and reproducibility is a key element to validate studies.
  
 ## The Reproducibility Spectrum
 
-<img src="./img/peng-spectrum.jpg" alt="Peng, 2011" style="width: 100%;"/>
-Peng, 2011
+<img src="./img/peng-spectrum.jpg" alt="Peng, 2011" style="width: 100%; border:0px"/>
+<small>Peng, 2011</small>
+</br>
+
+The main idea is to release studies along with data and computer code that
+support scientific findings.
+
 
 <div class="notes">
 The main idea behind
@@ -71,7 +70,10 @@ support scientific findings (Peng 2011).
 
 ## Map Reproducibility ?
 
-* Maps are part of scientific studies and should be reproducible. 
+Maps are part of scientific studies and should be reproducible. 
+
+<img src="./img/maparticle.jpg" alt="Peng, 2011" style="width: 64%; border:0px"/>
+
 
 <div class="notes">
 We argue that maps, as other graphics or statistical outputs,
@@ -90,24 +92,22 @@ are part of scientific studies and should, as much as possible, be reproducible.
 - Combine analysis and representations
 
 
-## Map Reproducibility ?
+## Map Reproducibility ? {data-transition="convex-in fade-out"}
 
+<img src="./img/chain1.png" alt="Drawing" style="border:0px"/>  
 Statistical maps production use a wide range of software products and data formats.
 
-<img src="./img/Chaine-de-traitement1.png" alt="Drawing"/>
 
+## Map Reproducibility ? {data-transition="fade-in convex-out"}
 
-## Map Reproducibility ?
-
-* This diversity makes reproducibility difficult
-
-<img src="./img/Chaine-de-traitement2.png" alt="Drawing"/>
+<img src="./img/chain2.png" alt="Drawing" style="border:0px"/>  
+This diversity makes reproducibility difficult.
 
 
 
 ## Map Reproducibility ?
 
-<img src="./img/Fig01.png" alt="Drawing"/>
+<img src="./img/Fig01.png" alt="Drawing" style="border:0px"/>
 
 We need a single tool to simplify the toolchain and ensure an easy reproducibility. 
 
@@ -119,17 +119,20 @@ prehensive vector thematic maps that includes all statistical and geometrical
 transformations, is considered a full metadata document.
 </div>
 
-# HOW ?
+# How ? {data-background="./img/computerrage.gif"}
+
+
 
 ## Pick an appropriate tool
+* Availability - cost  
+* Transparency - Open-source  
+* Simplicity - access to functionnalities and help  
 
-* Availability - cost
-* Transparency - Open-source
-* Simplicity - access to functionnalities and help
+## Pick an appropriate tool {data-transition="convex-in fade-out"}
 
-## Pick an appropriate tool
 
-__The R Software__:   
+<img src="./img/Rlogo.png" alt="Drawing" style="border:0px;width:200px"/>
+
 <p style="text-align: left;">
 R is a free software environment for statistical computing and graphics. 
 It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.</p>
@@ -141,9 +144,9 @@ spatial information management.
 </div>
 
 
-## Pick an appropriate tool
+## Pick an appropriate tool {data-transition="fade-in convex-out"}
 
-R has:  
+<img src="./img/Rlogo.png" alt="Drawing" style="border:0px;width:200px"/>
 
 - A large ecosystem of user-contributed extensions (packages)  
 
@@ -155,16 +158,16 @@ R has:
 10762 packages in the *Comprehensive R Archive Network* (CRAN) (6 juin 2017)  
 </div>
 
-## From a complex toolchain...
+## From a complex toolchain...{data-transition="convex-in fade-out"}
 
-<img src="./img/Chaine-de-traitement2.png" alt="Drawing" style="width: 100%;"/>
+<img src="./img/chain2.png" alt="Drawing" style="width: 100%;border:0px"/>
 
-## ... to an unified workflow
+## ... to an unified workflow{data-transition="fade-in convex-out"}
 
-<img src="./img/Chaine-de-traitement3.png" alt="Drawing" style="width: 100%;"/>
+<img src="./img/chain3.png" alt="Drawing" style="width: 100%;border:0px"/>
 
 
-# cartography
+# cartography <br/><br/><img src="./img/cartomix.png" alt="science" style="width:600px;border:0px"/>
 
 
 ## Some simple maps
@@ -212,7 +215,7 @@ dev.off()
 
 ## Some simple maps
 
-<img src="./img/map1.png" alt="map1"/>
+<img src="./img/map1.png" alt="map1" style="border:0px"/>
 
 ## Some simple maps
 <small>
@@ -255,7 +258,7 @@ dev.off()
 
 ## Some simple maps
 
-<img src="./img/map2.png" alt="map2"/>
+<img src="./img/map2.png" alt="map2" style="border:0px"/>
 
 ## Some simple maps
 
@@ -307,7 +310,7 @@ dev.off()
 
 ## Some simple maps
 
-<img src="./img/map3.png" alt="map3"/>
+<img src="./img/map3.png" alt="map3" style="border:0px"/>
 
 ## Some simple maps
 
@@ -362,7 +365,7 @@ dev.off()
 
 ## Some simple maps
 
-<img src="./img/map4.png" alt="map4"/>
+<img src="./img/map4.png" alt="map4" style="border:0px"/>
 
 <div class="notes">
 The three next maps are more complex. Their production involves
@@ -431,7 +434,7 @@ dev.off()
 
 ## Gridded Map
 
-<img src="./img/map5.png" alt="map5"/>
+<img src="./img/map5.png" alt="map5" style="border:0px"/>
 
 <div class="notes">
 The “grid-cell” representation is a method that overcomes the arbitrariness and
@@ -500,7 +503,7 @@ dev.off()
 
 ## Discontinuities map
 
-<img src="./img/map6.png" alt="map6"/>
+<img src="./img/map6.png" alt="map6" style="border:0px"/>
 
 <div class="notes">
 Discontinuity maps are based on the variation of a phenomenon in contiguous
@@ -594,7 +597,7 @@ dev.off()
 
 ## Isopleth map
 
-<img src="./img/map7.png" alt="map7"/>
+<img src="./img/map7.png" alt="map7" style="border:0px"/>
 
 <div class="notes">
 Unlike choropleth maps that imply a phenomenon is spatially discrete, isopleth
@@ -611,10 +614,20 @@ spatial interaction function and its parameters) as inputs and displays an isopl
 map layer.
 </div>
 
-# Thank you
+# Thank you {data-transition="convex-in fade-out"}
 
-## Paper / Code / Slides
+## Thank you {data-transition="fade-in fade-out"}
+**Paper / Code / Slides**  
+https://github.com/riatelab/ReproducibleCartography/  
+<br/>
+**cartography**  
+Github: [https://github.com/Groupe-ElementR/cartography](https://github.com/Groupe-ElementR/cartography)  
+CRAN: [https://cran.r-project.org/web/packages/cartography/](https://cran.r-project.org/web/packages/cartography/index.html)  
+<br/>
+**Blogs**  
+neocarto: [neocarto.hypotheses.org](https://neocarto.hypotheses.org/)   
+rgeomatic: [rgeomatic.hypotheses.org](https://rgeomatic.hypotheses.org/)
 
-https://github.com/riatelab/ReproducibleCartography/
+
 
 
