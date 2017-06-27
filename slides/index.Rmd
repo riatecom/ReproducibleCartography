@@ -29,12 +29,8 @@ options(width = 90)
 ```
 
 
-# "Science is infallible; <br/> but scientists are always wrong."<br/><br/><img src="./img/wrong.jpg" alt="science" style="border:0px"/>
+# "Science is infallible; <br/> but scientists are always wrong."<br/><small><small>Anatole France, 1889</small></small><br/><img src="./img/wrong.jpg" alt="science" style="border:0px"/>
 
-<div class="notes">
-"La science est infaillible ; mais les savants se trompent toujours" 
-(Anatole France, 1889)   
-</div>
 
 
 ## Reproducible Research
@@ -45,11 +41,7 @@ options(width = 90)
 
 * It may be easier to reproduce studies in computer based sciences. 
 
-<div class="notes">
-The assessment of scientific
-results is possible through the availability of methods and data used by scientists,
-and reproducibility is a key element to validate studies.
-</div>
+
  
 ## The Reproducibility Spectrum
 
@@ -61,12 +53,6 @@ The main idea is to release studies along with data and computer code that
 support scientific findings.
 
 
-<div class="notes">
-The main idea behind
-reproducible research is to release studies along with data and computer code that
-support scientific findings (Peng 2011).
-</div>
-
 
 ## Map Reproducibility ?
 
@@ -74,11 +60,6 @@ Maps are part of scientific studies and should be reproducible.
 
 <img src="./img/maparticle.jpg" alt="Peng, 2011" style="width: 64%; border:0px"/>
 
-
-<div class="notes">
-We argue that maps, as other graphics or statistical outputs,
-are part of scientific studies and should, as much as possible, be reproducible.
-</div>
 
 
 ## Map Reproducibility ?
@@ -92,10 +73,12 @@ are part of scientific studies and should, as much as possible, be reproducible.
 - Combine analysis and representations
 
 
+
 ## Map Reproducibility ? {data-transition="convex-in fade-out"}
 
 <img src="./img/chain1.png" alt="Drawing" style="border:0px"/>  
-Statistical maps production use a wide range of software products and data formats.
+Statistical maps production uses a wide range of software products and data formats.
+
 
 
 ## Map Reproducibility ? {data-transition="fade-in convex-out"}
@@ -111,25 +94,12 @@ This diversity makes reproducibility difficult.
 
 We need a single tool to simplify the toolchain and ensure an easy reproducibility. 
 
-<div class="notes">
-We argue that in the reproducible research framework, researchers
-must use literate programming solutions that enable the full traceability of their
-studies. A script that describes every step of the process, from raw data to com-
-prehensive vector thematic maps that includes all statistical and geometrical
-transformations, is considered a full metadata document.
-</div>
 
 # How ? {data-background="./img/computerrage.gif"}
 
 
 
-## Pick an appropriate tool
-* Availability - cost  
-* Transparency - Open-source  
-* Simplicity - access to functionnalities and help  
-
 ## Pick an appropriate tool {data-transition="convex-in fade-out"}
-
 
 <img src="./img/Rlogo.png" alt="Drawing" style="border:0px;width:200px"/>
 
@@ -137,11 +107,6 @@ transformations, is considered a full metadata document.
 R is a free software environment for statistical computing and graphics. 
 It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.</p>
 
-<div class="notes">
-* Open Source (GNU General Public License)
-* Initially design for statistics But a large number of packages are dedicated to 
-spatial information management. 
-</div>
 
 
 ## Pick an appropriate tool {data-transition="fade-in convex-out"}
@@ -154,9 +119,7 @@ spatial information management.
 
 - Very good literate programming functionnalities (rmarkdown)  
 
-<div class="notes">
-10762 packages in the *Comprehensive R Archive Network* (CRAN) (6 juin 2017)  
-</div>
+
 
 ## From a complex toolchain...{data-transition="convex-in fade-out"}
 
@@ -165,6 +128,7 @@ spatial information management.
 ## ... to an unified workflow{data-transition="fade-in convex-out"}
 
 <img src="./img/chain3.png" alt="Drawing" style="width: 100%;border:0px"/>
+
 
 
 # cartography <br/><br/><img src="./img/cartomix.png" alt="science" style="width:600px;border:0px"/>
@@ -315,7 +279,6 @@ dev.off()
 ## Some simple maps
 
 <small>
-
 ```{r propSchoro, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
 # save map
 png(filename = "img/map4.png", width = 600, height = 535, res = 100)
@@ -360,24 +323,17 @@ dev.off()
 
 #                                                                                                         .
 ```
-
 </small>
+
 
 ## Some simple maps
 
 <img src="./img/map4.png" alt="map4" style="border:0px"/>
 
-<div class="notes">
-The three next maps are more complex. Their production involves
-geo-processing operations, usually scattered across multiple steps and intermediate
-files. cartography simplifies the process by wrapping all operations in its
-functions.
-</div>
 
 ## Gridded Map
 
 <small>
-
 ```{r grid, echo=TRUE, eval=FALSE, prompt=FALSE, message=FALSE, results='hide'}
 # Create a grid layer
 mygrid <- getGridLayer(spdf = nuts3.spdf, cellsize = 1e+05, 
@@ -428,26 +384,12 @@ dev.off()
 
 #                                                                                                         .
 ```
-
-
 </small>
 
 ## Gridded Map
 
 <img src="./img/map5.png" alt="map5" style="border:0px"/>
 
-<div class="notes">
-The “grid-cell” representation is a method that overcomes the arbitrariness and
-irregularity of administrative divisions. It highlights the main spatial trends by
-splitting the territory in regular blocks. Statistical values are distributed over a
-regular grid. Cell values are calculated taking into account the share of intersected
-areas between initial units and grid cells, and are eventually discretized and the grid
-is displayed as a choropleth map.
-In cartography, this process relies on three functions. getGridLayer
-builds a regular grid (squares or hexagons) based on a spatial object and provides
-the shares of intersected areas. getGridData computes data that matches the grid
-layer. Finally, choroLayer displays the grid on a choropleth map.
-</div>
 
 
 ## Discontinuities map
@@ -504,24 +446,6 @@ dev.off()
 ## Discontinuities map
 
 <img src="./img/map6.png" alt="map6" style="border:0px"/>
-
-<div class="notes">
-Discontinuity maps are based on the variation of a phenomenon in contiguous
-administrative units. This kind of representation does not focus on homogeneous
-regions, but rather on spatial breaks. Here, the thickness of the borders points out
-discontinuities intensities.
-The first step to build these maps is to extract borders from contiguous spatial
-units. The second step is to compute a discontinuity measure (either a ratio or an
-absolute difference). The third step consists in applying various values to borders’
-thickness. Combining these discontinuities with a choropleth representation helps
-understanding the discontinuity direction (which one of two regions records the
-higher value).
-In cartography, getBorders is used to extract borders between spatial
-units. discLayer function computes and
-displays discontinuities. A line’s width reflects the discontinuity level between two
-neighboring units. The discontinuities layer can be supplemented by a choropleth
-layer.
-</div>
 
 
 ## Isopleth map
@@ -591,7 +515,6 @@ dev.off()
 
 #                                                                                                         .
 ```
-
 </small>
 
 
@@ -599,22 +522,9 @@ dev.off()
 
 <img src="./img/map7.png" alt="map7" style="border:0px"/>
 
-<div class="notes">
-Unlike choropleth maps that imply a phenomenon is spatially discrete, isopleth
-maps are based on the assumption that a phenomenon is spatially continuous. These
-maps use a spatial interaction modeling approach aiming at computing indicators
-based on stock values weighted by distances. This spatial representation is independent 
-from the initial heterogeneity of the territorial division. The
-result is easy to read and can be considered as a bypass of the Modifiable Areal Unit
-Problem (MAUP).
-In cartography the smoothLayer function, that heavily depends on
-SpatialPosition, allows a quick computation
-of these maps. The function takes a marked point layer and a set of parameters (a
-spatial interaction function and its parameters) as inputs and displays an isopleth
-map layer.
-</div>
 
 # Thank you {data-transition="convex-in fade-out"}
+
 
 ## Thank you {data-transition="fade-in fade-out"}
 **Paper / Code / Slides**  
