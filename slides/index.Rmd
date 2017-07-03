@@ -531,7 +531,7 @@ dev.off()
 https://github.com/riatelab/ReproducibleCartography/  
 <br/>
 **cartography**  
-Github: [https://github.com/Groupe-ElementR/cartography](https://github.com/Groupe-ElementR/cartography)  
+Github: [https://github.com/riatelab/cartography](https://github.com/riatelab/cartography)  
 CRAN: [https://cran.r-project.org/web/packages/cartography/](https://cran.r-project.org/web/packages/cartography/index.html)  
 <br/>
 **Blogs**  
